@@ -1,5 +1,10 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 html,
 body {
+  height: 100%;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -13,4 +18,28 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.page-wrapper {
+  @apply pt-16 h-screen bg-primary-base;
+}
+
+.theme-bg {
+  @apply bg-white dark:bg-dark;
+}
+
+.theme-text {
+  @apply text-dark dark:text-light;
+}
+
+.nav-link {
+  @apply text-sm uppercase px-4 font-sans text-dark hover:text-primary-base transition ease-in-out duration-100 dark:text-light dark:hover:text-primary-light;
+}
+
+.nav-link.active {
+  @apply font-bold text-primary-dark dark:text-primary-lightest;
+}
+
+.title {
+  @apply text-3xl text-dark dark:text-light font-display lowercase;
 }
