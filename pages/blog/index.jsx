@@ -3,6 +3,7 @@ import axios from "axios"
 import Image from "next/image"
 import MainContent from "../../components/MainContent"
 import Link from "next/link"
+import { convertToSlug } from "../../utils"
 
 export default function Blog({ images, articles }) {
   return (
@@ -12,12 +13,13 @@ export default function Blog({ images, articles }) {
       </Head>
       <h1 className="title my-16 text-center">A web developer blog</h1>
       {articles.map((article, index) => {
+        const slug = convertToSlug(article.title)
         if (index > 9) return null
         const image = { ...images[index] }
         return (
           <article className="mx-auto w-[700px] mb-16" key={article.id}>
             <figure className="relative w-full h-[300px] cursor-pointer bg-dark">
-              <Link passHref href={`/blog/${article.id}`}>
+              <Link passHref href={`/blog/${slug}`}>
                 <Image
                   className="transition ease-in-out duration-200 hover:opacity-80"
                   src={image.urls.regular}
@@ -32,7 +34,7 @@ export default function Blog({ images, articles }) {
               </Link>
             </figure>
             <h2 className="title">
-              <Link href={`/blog/${article.id}`}>
+              <Link href={`/blog/${slug}`}>
                 <a className="text-primary-base hover:text-primary-dark">
                   {article.title}
                 </a>
