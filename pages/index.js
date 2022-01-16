@@ -50,10 +50,12 @@ export default function Home({ content: { homePage } }) {
           />
         </figure>
       </article>
-      <article className="bg-white py-16">
-        <div className="container markdown">
-          <h2 className="title">{homePage.introHeading}</h2>
-          <ReactMarkdown>{homePage.introParagraph}</ReactMarkdown>
+      <article className="bg-white h-screen flex items-center">
+        <div className="container">
+          <h2 className="section-title">{homePage.introHeading}</h2>
+          <div className="markdown">
+            <ReactMarkdown>{homePage.introParagraph}</ReactMarkdown>
+          </div>
         </div>
       </article>
     </>

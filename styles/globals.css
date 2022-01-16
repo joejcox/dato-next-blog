@@ -17,6 +17,9 @@ a {
   @apply text-primary-base;
 }
 
+p {
+  @apply leading-loose;
+}
 * {
   box-sizing: border-box;
 }
@@ -82,6 +85,15 @@ a {
 
 .banner-title {
   @apply text-[2rem] text-white w-full font-serif font-extrabold leading-relaxed md:text-6xl lg:text-7xl 2xl:text-9xl;
+}
+
+.section-title {
+  @apply text-5xl sm:text-7xl lg:text-9xl text-dark font-serif font-bold mb-8 relative z-1 border-b-2 border-secondary-base;
+}
+
+.section-title::after {
+  content: "";
+  @apply absolute -top-1/4 left-0 w-[200px] h-[200px] border-8 rounded-full bg-secondary-base border-secondary-base -z-1;
 }
 
 .strapline {
