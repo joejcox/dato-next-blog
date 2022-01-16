@@ -1,7 +1,7 @@
 import Head from "next/head"
-import MainContent from "../components/MainContent"
+// import MainContent from "../components/MainContent"
 import { request } from "../lib/datocms"
-import Image from "next/image"
+import { Image } from "react-datocms"
 
 export default function Home({ content: { homePage } }) {
   const {
@@ -40,10 +40,8 @@ export default function Home({ content: { homePage } }) {
         </section>
         <figure className="relative h-full w-full">
           <Image
-            src={homePage.bannerImage.url}
+            data={homePage.bannerImage.responsiveImage}
             alt={homePage.bannerImage.alt}
-            layout="fill"
-            objectFit="cover"
           />
         </figure>
       </article>
@@ -58,6 +56,16 @@ const HOMEPAGE_QUERY = `query Homepage {
     bannerImage {
       alt
       url
+      responsiveImage {
+        alt
+        aspectRatio
+        bgColor
+        height
+        sizes
+        src
+        srcSet
+        width
+      }
     }
     strapline
     heading2 {
