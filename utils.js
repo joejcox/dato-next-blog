@@ -15,8 +15,8 @@ export function convertToSlug(str) {
   return result
 }
 
-export function convertFromSlug(slug) {
-  slug = slug.replaceAll("-", " ")
+export function convertFromSlug(str) {
+  const s = str.replace(/-/g, " ")
 
-  return slug
+  return s
 }
