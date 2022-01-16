@@ -65,7 +65,7 @@ const HOMEPAGE_QUERY = `query Homepage {
   }
 }`
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const content = await request({
     query: HOMEPAGE_QUERY,
   })
