@@ -52,7 +52,6 @@ export default function Home({ content: { homePage } }) {
 const HOMEPAGE_QUERY = `query Homepage {
   homePage {
     id
-    heading
     bannerImage {
       alt
       url
@@ -68,7 +67,7 @@ const HOMEPAGE_QUERY = `query Homepage {
       }
     }
     strapline
-    heading2 {
+    heading {
       value
     }
   }
