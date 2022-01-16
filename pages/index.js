@@ -4,7 +4,19 @@ import { request } from "../lib/datocms"
 import Image from "next/image"
 
 export default function Home({ content: { homePage } }) {
-  // console.log(homePage)
+  console.log(homePage)
+  const {
+    heading2: {
+      value: {
+        document: { children },
+      },
+    },
+  } = homePage
+
+  const headingStart = children[0].children[0].value
+  const headingSpan = children[1].children[0].value
+  const headingEnd = children[2].children[0].value
+
   return (
     <>
       <Head>
@@ -16,7 +28,11 @@ export default function Home({ content: { homePage } }) {
         <section className="overlay">
           <div className="container">
             <div className="banner-content">
-              <h1 className="banner-title">{homePage.heading}</h1>
+              <h1 className="banner-title">
+                {headingStart}
+                <br />
+                <span className="highlight">{headingSpan}</span> {headingEnd}
+              </h1>
               <h2 className="strapline">{homePage.strapline}</h2>
             </div>
           </div>
@@ -43,8 +59,12 @@ const HOMEPAGE_QUERY = `query Homepage {
       url
     }
     strapline
+    heading2 {
+      value
+    }
   }
 }`
+
 export async function getStaticProps() {
   const content = await request({
     query: HOMEPAGE_QUERY,

@@ -11,9 +11,9 @@ module.exports = {
       grey: colors.gray,
       dark: "hsl(77, 12%, 11%)",
       primary: {
-        lightest: "hsl(269, 97%, 75%)",
-        light: "hsl(269, 97%, 65%)",
-        base: "hsl(269, 97%, 55%)",
+        lightest: "hsl(269, 97%, 85%)",
+        light: "hsl(269, 97%, 75%)",
+        base: "hsl(269, 97%, 65%)",
         dark: "hsl(269, 97%, 40%)",
         darkest: "hsl(269, 98%, 20%)",
       },

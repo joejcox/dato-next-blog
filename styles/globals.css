@@ -25,6 +25,10 @@ a {
   @apply -mt-24 h-full font-sans;
 }
 
+.homepage .highlight {
+  @apply text-primary-base;
+}
+
 /* Header */
 
 .logo {
@@ -32,7 +36,7 @@ a {
 }
 
 .logo a {
-  @apply text-2xl font-bold font-serif text-dark hover:text-primary-darkest md:text-3xl lg:text-4xl;
+  @apply text-2xl font-bold font-serif text-primary-darkest hover:text-primary-darkest md:text-3xl lg:text-4xl;
 }
 
 .nav-link {

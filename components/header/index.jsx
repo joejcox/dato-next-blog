@@ -6,7 +6,11 @@ export default function Header() {
     <header className="h-24 z-50">
       <div className="header-container">
         <h2 className="logo">
-          <Link href="/">Swift Web Digital</Link>
+          <Link href="/">
+            <a>
+              <span className="highlight">Swift</span>web Digital
+            </a>
+          </Link>
         </h2>
         <nav className="hidden lg:block">
           <NavLink href="/">
