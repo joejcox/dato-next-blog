@@ -5,7 +5,7 @@ import { Image } from "react-datocms"
 
 export default function Home({ content: { homePage } }) {
   const {
-    heading2: {
+    heading: {
       value: {
         document: { children },
       },
