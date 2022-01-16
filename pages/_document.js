@@ -12,7 +12,7 @@ class MyDocument extends Document {
             crossOrigin="true"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@200;400;700;800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;900&family=Playfair+Display:wght@400;700;800&display=swap"
             rel="stylesheet"
           />
         </Head>

@@ -25,7 +25,7 @@ export default function Post({ post, image }) {
 }
 
 export async function getServerSideProps(params) {
-  const title = convertFromSlug(params.query.title)
+  const title = convertFromSlug(params.query.slug)
 
   const postRequest = axios.get(
     `https://jsonplaceholder.typicode.com/posts/?title=${title}`

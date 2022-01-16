@@ -47,18 +47,6 @@ export default function Blog({ images, articles }) {
   )
 }
 
-// export async function getServerSideProps() {
-//   const images = await axios.get(
-//     `https://api.unsplash.com/collections/?page=3&client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}`
-//   )
-
-//   return {
-//     props: {
-//       images: images.data,
-//     },
-//   }
-// }
-
 export async function getServerSideProps() {
   const imagesRequest = axios.get(
     `https://api.unsplash.com/photos/?page=3&client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}`

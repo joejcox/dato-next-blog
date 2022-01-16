@@ -3,12 +3,12 @@ import NavLink from "./NavLink"
 
 export default function Header() {
   return (
-    <header className="h-16 bg-white dark:bg-dark fixed w-screen z-50 shadow-sm">
-      <div className="container h-full flex items-center justify-between">
-        <h2 className="text-4xl font-extrabold lowercase font-display tracking-wide text-primary-base hover:text-primary-dark">
-          <Link href="/">Gorimor</Link>
+    <header className="h-24 z-50">
+      <div className="header-container">
+        <h2 className="logo">
+          <Link href="/">Swift Web Digital</Link>
         </h2>
-        <nav>
+        <nav className="hidden lg:block">
           <NavLink href="/">
             <a className="nav-link">Home</a>
           </NavLink>

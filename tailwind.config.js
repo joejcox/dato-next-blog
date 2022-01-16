@@ -6,13 +6,16 @@ module.exports = {
   theme: {
     colors: {
       white: colors.white,
+      black: colors.black,
       light: "hsl(222, 15%, 87%)",
+      grey: colors.gray,
       dark: "hsl(77, 12%, 11%)",
       primary: {
         lightest: "hsl(269, 97%, 75%)",
         light: "hsl(269, 97%, 65%)",
         base: "hsl(269, 97%, 55%)",
-        dark: "hsl(269, 97%, 45%)",
+        dark: "hsl(269, 97%, 40%)",
+        darkest: "hsl(269, 98%, 20%)",
       },
       secondary: {
         lightest: "hsl(30, 91%, 86%)",
@@ -22,7 +25,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      display: ["Fredoka One", "cursive"],
+      serif: ["Playfair Display", "serif"],
       sans: ["Nunito", "sans-serif"],
     },
     extend: {

@@ -14,6 +14,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  @apply text-primary-base;
 }
 
 * {
@@ -21,25 +22,74 @@ a {
 }
 
 .page-wrapper {
-  @apply pt-16 h-screen bg-primary-base;
+  @apply -mt-24 h-full font-sans;
 }
 
-.theme-bg {
-  @apply bg-white dark:bg-dark;
+/* Header */
+
+.logo {
+  @apply pl-6 border-l-8 border-primary-base;
 }
 
-.theme-text {
-  @apply text-dark dark:text-light;
+.logo a {
+  @apply text-2xl font-bold font-serif text-dark hover:text-primary-darkest md:text-3xl lg:text-4xl;
 }
 
 .nav-link {
-  @apply text-sm uppercase px-4 font-sans text-dark hover:text-primary-base transition ease-in-out duration-100 dark:text-light dark:hover:text-primary-light;
+  @apply text-sm uppercase px-4 font-sans transition ease-in-out duration-100 text-grey-400 hover:text-primary-base;
 }
 
 .nav-link.active {
-  @apply font-bold text-primary-dark dark:text-primary-lightest;
+  @apply text-primary-darkest;
 }
 
+.nav-link.active,
+.homepage .nav-link.active {
+  @apply font-black;
+}
+
+.header-container {
+  @apply container h-full flex items-center justify-between;
+}
+
+/* Header: Homepage */
+
+.homepage .logo {
+  @apply border-light;
+}
+
+.homepage .logo a {
+  @apply text-light hover:text-white;
+}
+
+.homepage .nav-link {
+  @apply text-light hover:text-white;
+}
+
+.homepage .nav-link.active {
+  @apply text-white;
+}
+
+/* Titles */
+
 .title {
-  @apply text-3xl text-dark dark:text-light font-display lowercase;
+  @apply text-3xl text-dark dark:text-light font-serif;
+}
+
+.banner-title {
+  @apply text-[2rem] text-white w-full font-serif font-extrabold leading-relaxed md:text-6xl lg:text-7xl 2xl:text-9xl;
+}
+
+.strapline {
+  @apply text-xl text-white leading-normal mt-4 font-light lg:mt-8 lg:text-2xl w-full sm:w-[500px] lg:w-[600px] 2xl:w-[800px];
+}
+
+/* Banners and Overlays */
+
+.banner-content {
+  @apply w-full md:w-[600px] lg:w-[700px] 2xl:w-3/4;
+}
+
+.overlay {
+  @apply absolute top-0 left-0 w-full h-full bg-primary-darkest bg-opacity-70 bg-gradient-to-b from-black z-1 flex items-center justify-center;
 }
