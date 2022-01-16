@@ -24,8 +24,6 @@ export default function Blog({ images, articles }) {
                   className="transition ease-in-out duration-200 hover:opacity-80"
                   src={image.urls.regular}
                   alt=""
-                  width="400"
-                  height="300"
                   layout="fill"
                   objectFit="cover"
                   blurDataURL={image.urls.small}
@@ -47,7 +45,7 @@ export default function Blog({ images, articles }) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const imagesRequest = axios.get(
     `https://api.unsplash.com/photos/?page=3&client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}`
   )
@@ -59,5 +57,6 @@ export async function getServerSideProps() {
       images: images.data,
       articles: posts.data,
     },
+    revalidate: 10,
   }
 }
