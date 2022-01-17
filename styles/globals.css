@@ -88,13 +88,26 @@ p {
 }
 
 .section-title {
-  @apply text-5xl sm:text-7xl lg:text-9xl text-dark font-serif font-bold mb-8 relative z-1 border-b-2 border-secondary-base;
+  @apply inline-block overflow-hidden text-5xl sm:text-7xl lg:text-9xl text-dark font-serif font-bold pb-4 mb-4 relative z-1 xl:mb-8 xl:pb-8;
 }
 
+.intro .section-title:nth-child(2) {
+  @apply mb-8;
+}
+.overlay-span {
+  white-space: nowrap;
+}
+
+.overlay-span::after {
+  content: "";
+  @apply absolute -right-2 w-2 h-full bg-secondary-base top-0;
+}
+
+/* 
 .section-title::after {
   content: "";
   @apply absolute -top-1/4 left-0 w-[200px] h-[200px] border-8 rounded-full bg-secondary-base border-secondary-base -z-1;
-}
+} */
 
 .strapline {
   @apply text-xl text-white leading-normal mt-4 font-light lg:mt-8 lg:text-2xl w-full sm:w-[500px] lg:w-[600px] 2xl:w-[800px];

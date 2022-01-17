@@ -3,7 +3,7 @@ import axios from "axios"
 import Image from "next/image"
 import MainContent from "../../components/MainContent"
 import Link from "next/link"
-import { convertToSlug } from "../../utils"
+import { convertToSlug } from "../../lib/utils"
 
 export default function Blog({ images, articles }) {
   return (
@@ -47,7 +47,7 @@ export default function Blog({ images, articles }) {
 
 export async function getStaticProps() {
   const imagesRequest = axios.get(
-    `https://api.unsplash.com/photos/?page=3&client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}`
+    `https://api.unsplash.com/photos/?page=3&client_id=${process.env.NEXT_UNSPLASH_CLIENT_ID}`
   )
   const postsRequest = axios.get("https://jsonplaceholder.typicode.com/posts")
   const [images, posts] = await Promise.all([imagesRequest, postsRequest])

@@ -1,10 +1,19 @@
-import Head from "next/head"
-// import MainContent from "../components/MainContent"
+// api
 import { request } from "../lib/datocms"
+import { HOMEPAGE_QUERY } from "../graph-queries"
+
+// react
+import { useRef } from "react"
+
+// content
+import Head from "next/head"
 import { Image } from "react-datocms"
 import ReactMarkdown from "react-markdown"
+import HeadingAnimation from "../components/animations/HeadingAnimation"
+// import MainContent from "../components/MainContent"
 
 export default function Home({ content: { homePage } }) {
+  const introRef = useRef(null)
   const {
     heading: {
       value: {
@@ -50,9 +59,13 @@ export default function Home({ content: { homePage } }) {
           />
         </figure>
       </article>
-      <article className="bg-white h-screen flex items-center">
+      <article
+        className="bg-white h-screen flex items-center intro"
+        ref={introRef}
+      >
         <div className="container">
-          <h2 className="section-title">{homePage.introHeading}</h2>
+          <HeadingAnimation heading={homePage.introHeading} />
+          <HeadingAnimation heading={homePage.introHeadingTwo} />
           <div className="markdown">
             <ReactMarkdown>{homePage.introParagraph}</ReactMarkdown>
           </div>
@@ -61,28 +74,6 @@ export default function Home({ content: { homePage } }) {
     </>
   )
 }
-
-const HOMEPAGE_QUERY = `query Homepage {
-  homePage {
-    id
-    bannerImage {
-      alt
-      url(imgixParams: {fit: fill})
-      responsiveImage(imgixParams: {fit: fill}) {
-        height
-        src
-        srcSet
-        width
-      }
-    }
-    strapline
-    heading {
-      value
-    }
-    introHeading
-    introParagraph
-  }
-}`
 
 export async function getServerSideProps() {
   const content = await request({

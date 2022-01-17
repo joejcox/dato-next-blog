@@ -1,6 +1,6 @@
 import MainContent from "../../components/MainContent"
 import axios from "axios"
-import { convertFromSlug } from "../../utils"
+import { convertFromSlug } from "../../lib/utils"
 import Image from "next/image"
 
 export default function Post({ post, image }) {
@@ -23,26 +23,6 @@ export default function Post({ post, image }) {
     </MainContent>
   )
 }
-
-// export async function getServerSideProps(params) {
-//   const title = convertFromSlug(params.query.slug)
-
-//   const postRequest = axios.get(
-//     `https://jsonplaceholder.typicode.com/posts/?title=${title}`
-//   )
-
-//   const imageRequest = axios.get(
-//     `https://api.unsplash.com/photos/?random&count=1&client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}`
-//   )
-
-//   const [post, image] = await Promise.all([postRequest, imageRequest])
-//   return {
-//     props: {
-//       post: post.data,
-//       image: image.data,
-//     },
-//   }
-// }
 
 // This function gets called at build time on server-side.
 // It may be called again, on a serverless function, if
@@ -68,7 +48,7 @@ export async function getStaticProps({ params }) {
   )
 
   const imageRequest = await axios.get(
-    `https://api.unsplash.com/photos/?random&count=1&client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}`
+    `https://api.unsplash.com/photos/?random&count=1&client_id=${process.env.NEXT_UNSPLASH_CLIENT_ID}`
   )
 
   const [post, image] = await Promise.all([postRequest, imageRequest])
